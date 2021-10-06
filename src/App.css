@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+#logo {
+  background-image: url("./images/favicon.jpeg");
+  width: 40px;
+  size: cover;
+}
+body {
+  background-image: url("./images/bg.png");
+  background-size: cover;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#alarm {
+  background-color: cadetblue;
+}
+
+#text {
+  background-color: beige;
+  color: black !important;
+}
+#level {
+  background-color: darkseagreen;
+  color: black;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,35 +1,26 @@
-import React, { Component } from 'react';
-import ToggleDsiplay from 'react-toggle-display'
-import Timer from './timer';
+import React , {Component} from "react";
+import Countdown from "react-countdown";
 
 class Game extends Component{
-    state= {
-        levels : ['Easy', 'Medium', 'Hard'],
-        show: true
-        
+    constructor(props){
+        super(props);
+        this.state= {
+            show: true,
+            plots : ""
+        }
+    }
+    componentDidMount(){
+        fetch("http://www.omdbapi.com/?t=Shutter+Island&plot=full&apikey=c19096fc").
+        then(res => res.json()).
+        then((data) => {
+            this.setState({
+                plots: data.plot
+            })
+        })
+        console.log(this.state.plots)
     }
     
-    handleDifficulty = level => {
-        console.log(level);
-        this.setState({
-            show: !this.state.show
-        });
-
-    }
-
-    render(){
-        return <React.Fragment>
-            <ToggleDsiplay show={this.state.show}>
-            <div className="d-flex flex-column">
-                { this.state.levels.map(level => <button onClick={() => this.handleDifficulty(level)} className="btn btn-success col-sm-4 mx-auto my-2 p-2" id={level} key={level}>{level}</button>)}
-            </div>
-            </ToggleDsiplay>
-            <ToggleDsiplay show={!this.state.show}>
-                <Timer className="col-sm-4 mx-auto my-2 p-2"></Timer>
-            </ToggleDsiplay>
-            </React.Fragment>
-        
-    }
+    render(){return <div className="col-sm-8 mx-auto" id="text">{this.state.plots}</div> }
 }
 
 export default Game
