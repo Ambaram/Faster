@@ -12,7 +12,7 @@ class Difficulty extends Component{
         if (level == "Easy"){
             console.log(level)
             let text = fetch("https://www.omdbapi.com/?t=Shutter+Island&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
-            let time = document.getElementById('easy').innerHTML
+            let time = document.getElementById('easy')
             time = <Countdown date={Date.now() + 12000}/>
             const game = text+time
             return game
