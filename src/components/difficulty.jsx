@@ -11,21 +11,21 @@ class Difficulty extends Component{
     handleDifficulty = level => {
         if (level == "Easy"){
             console.log(level)
-            let text = fetch("http://www.omdbapi.com/?t=Shutter+Island&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
+            let text = fetch("https://www.omdbapi.com/?t=Shutter+Island&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
             let time = document.getElementById('timer')
             time= this.render(<Countdown date={Date.now() + 120000} />)
             return text , time
         }
         else if(level == "Medium" ){
             console.log(level)
-            let text = fetch("http://www.omdbapi.com/?t=Source+Code&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
+            let text = fetch("https://www.omdbapi.com/?t=Source+Code&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
             let time = document.getElementById('timer')
             time= this.render(<Countdown date={Date.now() + 90000} />)
             return text , time
         }
         else {
             console.log(level)
-            let text = fetch("http://www.omdbapi.com/?t=Argo&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
+            let text = fetch("https://www.omdbapi.com/?t=Argo&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
             let time = document.getElementById('timer')
             time= this.render(<Countdown date={Date.now() + 60000} />)
             return text , time
