@@ -12,21 +12,22 @@ class Difficulty extends Component{
         if (level == "Easy"){
             console.log(level)
             let text = fetch("https://www.omdbapi.com/?t=Shutter+Island&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
-            let time = document.getElementById('timer')
-            time= this.render(<Countdown date={Date.now() + 120000} />)
-            return text , time
+            let time = document.getElementById('easy').innerHTML
+            time = <Countdown date={Date.now() + 12000}/>
+            const game = text+time
+            return game
         }
         else if(level == "Medium" ){
             console.log(level)
             let text = fetch("https://www.omdbapi.com/?t=Source+Code&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
-            let time = document.getElementById('timer')
+            let time = document.getElementById('medium')
             time= this.render(<Countdown date={Date.now() + 90000} />)
             return text , time
         }
         else {
             console.log(level)
             let text = fetch("https://www.omdbapi.com/?t=Argo&plot=full&apikey=c19096fc").then(res=>res.json()).then((data)=>(document.getElementById('game').innerHTML= data.Plot))
-            let time = document.getElementById('timer')
+            let time = document.getElementById('hard')
             time= this.render(<Countdown date={Date.now() + 60000} />)
             return text , time
         }
